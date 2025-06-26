@@ -1,67 +1,61 @@
-@theme colors {
-  rock-primary: #FF791D,
-  rock-primary-50: #FFF4EB,
-  rock-primary-100: #FFE0CC,
-  rock-primary-200: #FFCAA8,
-  rock-primary-300: #FFB180,
-  rock-primary-400: #FF9655,
-  rock-primary-500: #FF791D,
-  rock-primary-600: #DB5F11,
-  rock-primary-700: #B74709,
-  rock-primary-800: #933505,
-  rock-primary-900: #7A2A03,
+@theme {
+  /* Colors */
+  --color-rock-primary: #FF791D;
+  --color-rock-primary-50: #FFF4EB;
+  --color-rock-primary-100: #FFE0CC;
+  --color-rock-primary-200: #FFCAA8;
+  --color-rock-primary-300: #FFB180;
+  --color-rock-primary-400: #FF9655;
+  --color-rock-primary-500: #FF791D;
+  --color-rock-primary-600: #DB5F11;
+  --color-rock-primary-700: #B74709;
+  --color-rock-primary-800: #933505;
+  --color-rock-primary-900: #7A2A03;
+  --color-rock-secondary: #0D1117;
+  --color-rock-secondary-50: #EAEDEF;
+  --color-rock-secondary-100: #CACFD3;
+  --color-rock-secondary-200: #A9B0B7;
+  --color-rock-secondary-300: #87919A;
+  --color-rock-secondary-400: #67717D;
+  --color-rock-secondary-500: #48525F;
+  --color-rock-secondary-600: #353D4A;
+  --color-rock-secondary-700: #252C38;
+  --color-rock-secondary-800: #171B25;
+  --color-rock-secondary-900: #0D1117;
 
-  rock-secondary: #0D1117,
-  rock-secondary-50: #EAEDEF,
-  rock-secondary-100: #CACFD3,
-  rock-secondary-200: #A9B0B7,
-  rock-secondary-300: #87919A,
-  rock-secondary-400: #67717D,
-  rock-secondary-500: #48525F,
-  rock-secondary-600: #353D4A,
-  rock-secondary-700: #252C38,
-  rock-secondary-800: #171B25,
-  rock-secondary-900: #0D1117
-}
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
 
-@theme spacing {
-  xs: 0.25rem,
-  sm: 0.5rem,
-  md: 1rem,
-  lg: 2rem,
-  xl: 4rem
-}
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
 
-@theme borderRadius {
-  sm: 0.125rem,
-  md: 0.375rem,
-  lg: 0.5rem,
-  xl: 0.75rem,
-  full: 9999px
-}
+  /* Font Family */
+  --font-sans: "Segoe UI";
+  --font-mono: "Courier New";
 
-@theme fontFamily {
-  sans: "Segoe UI",
-  mono: "Courier New"
-}
+  /* Font Size */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
 
-@theme fontSize {
-  xs: 12px,
-  sm: 14px,
-  base: 16px,
-  lg: 18px,
-  xl: 22px,
-  '2xl': 28px
-}
+  /* Font Weight */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-@theme fontWeight {
-  regular: 400,
-  semibold: 600,
-  bold: 700
-}
-
-@theme lineHeight {
-  tight: 105%,
-  normal: 150%,
-  relaxed: 175%
-}
+  /* Line Height */
+  --leading-tight: 105%;
+  --leading-normal: 150%;
+  --leading-relaxed: 175%;
+} 
