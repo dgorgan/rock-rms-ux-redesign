@@ -1,27 +1,27 @@
 @theme {
   /* Colors */
-  --color-rock-primary: #FF791D;
-  --color-rock-primary-50: #FFF4EB;
-  --color-rock-primary-100: #FFE0CC;
-  --color-rock-primary-200: #FFCAA8;
-  --color-rock-primary-300: #FFB180;
-  --color-rock-primary-400: #FF9655;
-  --color-rock-primary-500: #FF791D;
-  --color-rock-primary-600: #DB5F11;
-  --color-rock-primary-700: #B74709;
+  --color-rock-primary: #ff791d;
+  --color-rock-primary-50: #fff4eb;
+  --color-rock-primary-100: #ffe0cc;
+  --color-rock-primary-200: #ffcaa8;
+  --color-rock-primary-300: #ffb180;
+  --color-rock-primary-400: #ff9655;
+  --color-rock-primary-500: #ff791d;
+  --color-rock-primary-600: #db5f11;
+  --color-rock-primary-700: #b74709;
   --color-rock-primary-800: #933505;
-  --color-rock-primary-900: #7A2A03;
-  --color-rock-secondary: #0D1117;
-  --color-rock-secondary-50: #EAEDEF;
-  --color-rock-secondary-100: #CACFD3;
-  --color-rock-secondary-200: #A9B0B7;
-  --color-rock-secondary-300: #87919A;
-  --color-rock-secondary-400: #67717D;
-  --color-rock-secondary-500: #48525F;
-  --color-rock-secondary-600: #353D4A;
-  --color-rock-secondary-700: #252C38;
-  --color-rock-secondary-800: #171B25;
-  --color-rock-secondary-900: #0D1117;
+  --color-rock-primary-900: #7a2a03;
+  --color-rock-secondary: #0d1117;
+  --color-rock-secondary-50: #eaedef;
+  --color-rock-secondary-100: #cacfd3;
+  --color-rock-secondary-200: #a9b0b7;
+  --color-rock-secondary-300: #87919a;
+  --color-rock-secondary-400: #67717d;
+  --color-rock-secondary-500: #48525f;
+  --color-rock-secondary-600: #353d4a;
+  --color-rock-secondary-700: #252c38;
+  --color-rock-secondary-800: #171b25;
+  --color-rock-secondary-900: #0d1117;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -36,10 +36,6 @@
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
-
-  /* Font Family */
-  --font-sans: "Segoe UI";
-  --font-mono: "Courier New";
 
   /* Font Size */
   --text-xs: 12px;
@@ -58,4 +54,4 @@
   --leading-tight: 105%;
   --leading-normal: 150%;
   --leading-relaxed: 175%;
-} 
+}
