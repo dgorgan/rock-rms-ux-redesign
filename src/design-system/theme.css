@@ -1,3 +1,9 @@
+:root {
+  --text-strong: #0d1117; /* Primary, dominant text – page titles, table body */
+  --text-muted: #3d444d; /* Secondary emphasis – table headers, nav items */
+  --text-accent: #ff791d; /* Rock Primary – used in breadcrumbs + "Cancel" buttons */
+}
+
 @theme {
   /* Colors */
   --color-rock-primary: #ff791d;
@@ -11,6 +17,7 @@
   --color-rock-primary-700: #b74709;
   --color-rock-primary-800: #933505;
   --color-rock-primary-900: #7a2a03;
+
   --color-rock-secondary: #0d1117;
   --color-rock-secondary-50: #eaedef;
   --color-rock-secondary-100: #cacfd3;
@@ -22,6 +29,10 @@
   --color-rock-secondary-700: #252c38;
   --color-rock-secondary-800: #171b25;
   --color-rock-secondary-900: #0d1117;
+
+  --color-rock-background: #f8f8fc;
+  --color-rock-background-secondary: #d9d9e3;
+  --border-color: #d9d9e3;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -37,13 +48,19 @@
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  /* Font Size */
+  /* Font Sizes */
   --text-xs: 12px;
   --text-sm: 14px;
   --text-base: 16px;
   --text-lg: 18px;
   --text-xl: 22px;
   --text-2xl: 28px;
+
+  /* Font Family */
+  --font-sans:
+    'Segoe UI', system-ui, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji',
+    'Noto Color Emoji';
+  --font-mono: 'Courier New', monospace;
 
   /* Font Weight */
   --font-weight-regular: 400;
@@ -54,4 +71,16 @@
   --leading-tight: 105%;
   --leading-normal: 150%;
   --leading-relaxed: 175%;
+}
+
+@layer utilities {
+  .text-strong {
+    color: var(--text-strong);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
+  .text-accent {
+    color: var(--text-accent);
+  }
 }
