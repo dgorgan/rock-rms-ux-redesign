@@ -1,0 +1,1 @@
+export { GroupChannelPanel } from './GroupChannelPanel'

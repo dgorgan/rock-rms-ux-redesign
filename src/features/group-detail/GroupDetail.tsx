@@ -1,18 +1,12 @@
-import { GroupOverviewPanel } from './GroupOverviewPanel'
-import { GroupPermissionsPanel } from './GroupPermissionsPanel'
-import { useGroupDetail } from './hooks'
+'use client'
 
-interface GroupDetailProps {
-  groupId: string
-}
+import { GroupChannelPanel } from './channel-panel'
 
-export function GroupDetail({ groupId }: GroupDetailProps) {
-  const { channel, permissions } = useGroupDetail(groupId)
-
+export function GroupDetail() {
   return (
     <div className="space-y-lg">
-      <GroupOverviewPanel channel={channel} />
-      <GroupPermissionsPanel permissions={permissions} />
+      <GroupChannelPanel />
+      {/* GroupTablePanel will be added here in the next phase */}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button/Button'
 import { Panel, PanelHeader, PanelBody } from '@/components/patterns/Panel'
 
 interface GroupPermissionsPanelProps {

@@ -1,5 +1,5 @@
 import { Panel, PanelHeader, PanelBody, PanelFooter } from '@/components/patterns/Panel'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button/Button'
 
 interface GroupOverviewPanelProps {
   channel: {

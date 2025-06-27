@@ -4,7 +4,7 @@ import { GroupDetail } from '@/features/group-detail/GroupDetail'
 export default function Home() {
   return (
     <AppShell>
-      <GroupDetail groupId="worship-team" />
+      <GroupDetail />
     </AppShell>
   )
 }

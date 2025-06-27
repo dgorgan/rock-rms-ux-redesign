@@ -9,14 +9,11 @@ interface PanelHeaderProps {
 
 export function PanelHeader({ children, actions, className }: PanelHeaderProps) {
   return (
-    <div
-      className={cn(
-        'px-md py-sm border-rock-secondary-100 flex items-center justify-between border-b',
-        className
-      )}
-    >
-      <div className="text-strong text-lg font-bold">{children}</div>
-      {actions && <div className="gap-sm flex items-center">{actions}</div>}
+    <div className={cn('mb-4 border-b border-[#F8F8FC] pb-2', className)}>
+      <div className="flex items-center justify-between">
+        <div className="text-strong text-lg font-bold">{children}</div>
+        {actions && <div className="gap-sm flex items-center">{actions}</div>}
+      </div>
     </div>
   )
 }
