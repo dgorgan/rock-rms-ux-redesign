@@ -1,9 +1,10 @@
-import { AppShell } from "@/components/layout/AppShell"
+import { AppShell } from '@/components/layout/AppShell'
+import { GroupDetail } from '@/features/group-detail/GroupDetail'
 
 export default function Home() {
   return (
     <AppShell>
-      <div>Main content goes here</div>
+      <GroupDetail groupId="worship-team" />
     </AppShell>
   )
 }

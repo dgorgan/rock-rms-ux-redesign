@@ -6,7 +6,13 @@ interface ButtonProps {
   onClick?: () => void
 }
 
-export function Button({ variant = 'primary', size = 'md', children, onClick }: ButtonProps) {
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  children,
+  className,
+  onClick,
+}: ButtonProps) {
   const base = 'inline-flex items-center justify-center transition-colors cursor-pointer'
 
   const styles = {
@@ -20,7 +26,7 @@ export function Button({ variant = 'primary', size = 'md', children, onClick }: 
   }
 
   return (
-    <button className={`${base} ${styles[variant]} ${sizes[size]}`} onClick={onClick}>
+    <button className={`${base} ${styles[variant]} ${sizes[size]} ${className}`} onClick={onClick}>
       {children}
     </button>
   )
