@@ -10,7 +10,7 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="bg-rock-background flex min-h-screen pt-2">
+    <div className="bg-rock-background flex min-h-screen py-2">
       <AppSidenav />
       <AppHeader />
       <div className="flex flex-1 flex-col overflow-y-auto">

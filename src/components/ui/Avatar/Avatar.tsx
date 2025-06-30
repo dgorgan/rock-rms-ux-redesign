@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
 interface AvatarProps {
-  src: string
+  src?: string
   alt?: string
   size?: number
   className?: string
@@ -32,14 +32,20 @@ export function Avatar({
             className={cn('overflow-hidden rounded-full', className)}
             style={{ width: size, height: size }}
           >
-            <Image
-              src={src}
-              alt={alt}
-              width={size}
-              height={size}
-              unoptimized
-              className="object-cover"
-            />
+            {src ? (
+              <Image
+                src={src}
+                alt={alt}
+                width={size}
+                height={size}
+                unoptimized
+                className="object-cover"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-500">
+                {name ? name.charAt(0).toUpperCase() : '?'}
+              </div>
+            )}
           </div>
         </div>
         {showDropdown && (
@@ -65,7 +71,13 @@ export function Avatar({
       className={cn('overflow-hidden rounded-full', className)}
       style={{ width: size, height: size }}
     >
-      <Image src={src} alt={alt} width={size} height={size} className="object-cover" />
+      {src ? (
+        <Image src={src} alt={alt} width={size} height={size} className="object-cover" />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-500">
+          {name ? name.charAt(0).toUpperCase() : '?'}
+        </div>
+      )}
     </div>
   )
 }
