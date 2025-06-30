@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import { IconButton } from '../IconButton'
 
 interface AvatarProps {
   src?: string
@@ -55,20 +56,7 @@ export function Avatar({
             )}
           </div>
         </div>
-        {showDropdown && (
-          <svg
-            width="16"
-            height="20"
-            viewBox="0 0 16 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8 8C10.2091 8 12 6.20914 12 4C12 1.79086 10.2091 0 8 0C5.79086 0 4 1.79086 4 4C4 6.20914 5.79086 8 8 8ZM8 10C3.58172 10 0 13.5817 0 18C0 19.1046 0.89543 20 2 20H14C15.1046 20 16 19.1046 16 18C16 13.5817 12.4183 10 8 10Z"
-              fill="currentColor"
-            />
-          </svg>
-        )}
+        {showDropdown && <IconButton icon="chevron-down" size="sm" />}
       </div>
     )
   }

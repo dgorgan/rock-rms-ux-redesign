@@ -17,7 +17,7 @@ export function SearchBox({
   return (
     <div
       className={cn(
-        'border-rock-secondary-200 bg-rock-secondary-50 flex items-center overflow-hidden rounded-full border',
+        'border-rock-secondary-200 bg-rock-background flex items-center overflow-hidden rounded-full border',
         className
       )}
     >
