@@ -8,7 +8,12 @@ interface PanelProps {
 
 export function Panel({ children, className }: PanelProps) {
   return (
-    <div className={cn('overflow-hidden rounded-md border border-[#D9D9E3] bg-white', className)}>
+    <div
+      className={cn(
+        'border-rock-background-secondary overflow-hidden rounded-md border bg-white',
+        className
+      )}
+    >
       {children}
     </div>
   )

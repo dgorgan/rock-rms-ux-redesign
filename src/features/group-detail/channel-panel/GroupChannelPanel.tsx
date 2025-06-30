@@ -58,7 +58,7 @@ export function GroupChannelPanel() {
 
   return (
     <Panel>
-      <PanelHeader title="Heading" actions={headerActions} />
+      <PanelHeader title="Group Channel" actions={headerActions} />
 
       <Tabs activeTab={selectedTab} onChange={handleTabChange}>
         <TabList>
