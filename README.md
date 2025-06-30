@@ -141,7 +141,7 @@ Some elements (like `Panel Heading`, `panel-header-actions`) used the Panel pref
 
 Because of that, it wasn’t immediately clear whether prefixes implied structural ownership, slot-based injection, or were simply naming artifacts. I treated both header and footer regions as injected slots, keeping composition flexible and consistent regardless of naming convention.
 
-I interpreted the overall pattern as a loose separation between panel scaffolding and contextual content, even if it wasn’t formally defined.
+I interpreted the overall pattern as a loose separation between panel scaffolding and contextual content — even if that distinction wasn’t explicitly defined in this project’s scope (at least as I understood it).
 
 To address these uncertainties, I focused on:
 
@@ -161,11 +161,13 @@ When faced with ambiguities, I prioritized:
 
 ### `<Tabs />` & Naming Inconsistencies
 
-The Figma mockup labeled the element simply as “Tabs” and placed it beside PanelHeader, with no clear indication of ownership (e.g., it wasn’t labeled PanelTabs). I initially inlined it, then extracted it as primitives with Panel managing tab state. Eventually, I refactored it into a compound pattern (Tabs, TabList, TabTrigger, etc.) and moved it to `/components/patterns/`, because it felt more like a reusable layout behavior than a UI primitive.
+The mockup labeled this element simply as “Tabs” and placed it beside `PanelHeader`, with no clear ownership (e.g., no `PanelTabs`). I initially tried primitives, then explored a compound pattern (`Tabs`, `TabList`, `TabTrigger`, `TabContent`) — but that structure assumed Tabs owned both layout and state.
 
-While the instruction was to follow the component system closely, some areas of the mockup left room for interpretation. In this case, naming and placement suggested one thing, while the interaction model pointed toward another. I aimed to respect the spirit of the system while making thoughtful architectural calls where the design was open to interpretation.
+This caused a mismatch with the visual hierarchy: the tab content ended up nested inside `Tabs`, rather than rendered alongside as a sibling to `PanelHeader` and `PanelFooter`, as shown in the Figma.
 
-In a real-world scenario, I would collaborate closely with the design team (as I have on past projects) to align early, clarify ownership patterns, and ensure every component decision reflects both product intent and design direction.
+So I reverted to an uncontrolled pattern: `Tabs` manages internal state via context, while `Panel` controls the layout and content rendering. This preserved fidelity to the visual structure while still enabling reuse and composition.
+
+Since the mockup's naming and placement were a bit ambiguous, I leaned on visual grouping and architectural consistency over strict pattern purity (something I’d refine in collaboration with design in a real-world scenario).
 
 ### Icon System
 
