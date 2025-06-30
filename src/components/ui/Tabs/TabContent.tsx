@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useTabsContext } from './useTabsContext'
+import { useTabsContext } from './Tabs'
 
 type TabContentProps = {
   value: string

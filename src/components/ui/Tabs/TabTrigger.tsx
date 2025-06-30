@@ -1,24 +1,30 @@
-import { useTabsContext } from './useTabsContext'
+import React from 'react'
+import { cn } from '@/lib/utils'
+import { useTabsContext } from './Tabs'
 
-type TabTriggerProps = {
-  label: string
+interface TabTriggerProps {
   value: string
+  children: React.ReactNode
+  className?: string
 }
 
-export function TabTrigger({ label, value }: TabTriggerProps) {
+export function TabTrigger({ value, children, className }: TabTriggerProps) {
   const { activeTab, onChange } = useTabsContext()
   const isActive = activeTab === value
 
   return (
     <button
       onClick={() => onChange(value)}
-      className={`px-md py-sm border-b-2 text-sm font-semibold transition-colors ${
-        isActive
-          ? 'border-rock-primary-500 text-rock-primary-500'
-          : 'text-rock-secondary-500 hover:text-rock-primary-500 border-transparent'
-      }`}
+      className={cn(
+        'relative mr-6 flex h-full cursor-pointer items-center px-0 py-3 text-sm font-semibold transition-colors',
+        isActive ? 'text-rock-primary-500' : 'text-rock-secondary-500 hover:text-rock-primary-500',
+        className
+      )}
     >
-      {label}
+      {children}
+      {isActive && (
+        <div className="bg-rock-primary-500 absolute right-[-8px] bottom-[-5px] left-[-8px] h-[5px]" />
+      )}
     </button>
   )
 }

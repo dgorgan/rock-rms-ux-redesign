@@ -1,5 +1,5 @@
 export { Panel } from './Panel'
 export { PanelHeader } from './PanelHeader'
 export { PanelBody } from './PanelBody'
-export { PanelContainer } from '../PanelContainer'
-export { PanelFooter } from '../PanelFooter'
+export { PanelContainer } from './PanelContainer'
+export { PanelFooter } from './PanelFooter'

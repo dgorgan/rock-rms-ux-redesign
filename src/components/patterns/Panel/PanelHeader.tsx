@@ -1,19 +1,22 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 interface PanelHeaderProps {
-  children: ReactNode
+  title: ReactNode
   actions?: ReactNode
   className?: string
 }
 
-export function PanelHeader({ children, actions, className }: PanelHeaderProps) {
+export function PanelHeader({ title, actions, className }: PanelHeaderProps) {
   return (
-    <div className={cn('mb-4 border-b border-[#F8F8FC] pb-2', className)}>
-      <div className="flex items-center justify-between">
-        <div className="text-strong text-lg font-bold">{children}</div>
-        {actions && <div className="gap-sm flex items-center">{actions}</div>}
-      </div>
+    <div
+      className={cn(
+        'border-rock-secondary-200 flex h-[56px] items-center justify-between border-b px-6 pr-[17px]',
+        className
+      )}
+    >
+      <div className="text-strong text-lg font-bold">{title}</div>
+      {actions && <div className="flex items-center gap-1">{actions}</div>}
     </div>
   )
 }

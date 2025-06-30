@@ -1,4 +1,4 @@
-export { Tabs } from './Tabs'
+export { Tabs, useTabsContext } from './Tabs'
+export { TabList } from './TabList'
 export { TabTrigger } from './TabTrigger'
 export { TabContent } from './TabContent'
-export { useTabsContext } from './useTabsContext'

@@ -6,5 +6,5 @@ type PanelContainerProps = {
 }
 
 export function PanelContainer({ className, children }: PanelContainerProps) {
-  return <div className={cn('flex flex-col space-y-4 p-6', className)}>{children}</div>
+  return <div className={cn('shadow-card flex flex-col space-y-4', className)}>{children}</div>
 }

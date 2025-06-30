@@ -10,11 +10,11 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="bg-rock-background flex min-h-screen">
+    <div className="bg-rock-background flex min-h-screen pt-2">
       <AppSidebar />
       <AppHeader />
       <div className="flex flex-1 flex-col overflow-y-auto">
-        <main className="gap-xl pt-[100px] pb-[24px]">{children}</main>
+        <main className="gap-xl p-[24px] pt-[100px]">{children}</main>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button/Button'
+import { Button } from '@/components/ui/Button'
 
 type Permission = {
   name: string
@@ -29,9 +29,7 @@ export function ChannelPermissions({ permissions }: ChannelPermissionsProps) {
                 <td className="text-strong px-md py-sm text-sm">{permission.name}</td>
                 <td className="text-strong px-md py-sm text-sm">{permission.role}</td>
                 <td className="text-muted px-md py-sm text-sm">
-                  <Button variant="primary" className="text-accent hover:underline">
-                    Edit
-                  </Button>
+                  <Button variant="primary">Edit</Button>
                 </td>
               </tr>
             ))}

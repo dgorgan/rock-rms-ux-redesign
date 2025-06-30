@@ -7,5 +7,5 @@ interface PanelBodyProps {
 }
 
 export function PanelBody({ children, className }: PanelBodyProps) {
-  return <div className={cn('px-md py-md', className)}>{children}</div>
+  return <div className={cn('p-6', className)}>{children}</div>
 }

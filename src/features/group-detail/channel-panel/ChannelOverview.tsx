@@ -9,7 +9,7 @@ interface ChannelOverviewProps {
 
 export function ChannelOverview({ channel }: ChannelOverviewProps) {
   return (
-    <div className="space-y-6 pt-4">
+    <div className="space-y-6">
       <div>
         <p className="text-rock-secondary-700 text-sm leading-relaxed">{channel.description}</p>
       </div>
