@@ -74,7 +74,7 @@ export function GroupChannelPanel() {
 
       <PanelFooter
         footerActions={footerActions}
-        groupEditButtons={<IconButton icon="lock" variant="bordered" />}
+        groupEditButtons={<IconButton icon="lock-alt" variant="bordered" />}
       />
     </Panel>
   )
