@@ -8,9 +8,9 @@ A core objective was aligning with the component system defined in the design. I
 
 - **Composable Pattern**: Developers manually compose components (e.g., `Panel`) for maximum control.
 - **Opinionated Pattern**: Developers pass config and let the component manage internal logic (e.g., `RockGridComponent`).
-- **Compound Pattern**: State and logic are encapsulated inside a composed set of UI components (e.g., `Tabs`, `TabList`, `TabTrigger`)
+- **Controlled Pattern**: Parent manages state while components handle presentation (e.g., `Tabs`)
 
-This blend of patterns reflects the realities of modern design systems: developers need flexible tools for custom layouts, plug-and-play abstractions for repeated logic, and self-contained UI patterns for common interactive flows.
+This blend of patterns reflects the realities of modern design systems: developers need flexible tools for custom layouts, plug-and-play abstractions for repeated logic, and controlled interactions that maintain proper visual hierarchy.
 
 To support this flexibility at scale, I organized components across four architectural layers:
 
@@ -49,9 +49,9 @@ Grids and tables often involve complex but predictable logic: filtering, sorting
 />
 ```
 
-### Compound Pattern: `Tabs`
+### Controlled Pattern: `Tabs`
 
-To support flexible tabbed interfaces, I built a compound component structure using `Tabs`, `TabList`, and `TabTrigger`. This pattern encapsulates state and interaction logic while allowing developers to compose layouts declaratively, striking a balance between reusability and flexibility.
+For interactive UI patterns like tabs, I implemented a controlled component approach where the parent manages state and the tabs handle presentation. This maintains visual hierarchy while providing flexible composition:
 
 ```tsx
 <Tabs activeTab={selectedTab} onChange={handleTabChange}>
@@ -62,29 +62,101 @@ To support flexible tabbed interfaces, I built a compound component structure us
 </Tabs>
 ```
 
-This demonstrates how a component system can support flexible and streamlined development experiences.
+## Tabs Component Architecture Analysis
+
+<details>
+<summary><strong>Click to Expand</strong></summary>
+
+During development, I explored both compound and controlled patterns for Tabs to demonstrate different architectural approaches and their trade-offs.
+
+### Compound Pattern (Encapsulated)
+
+```tsx
+<Tabs defaultTab="overview">
+  <TabList>
+    <TabTrigger value="overview">Basic Info</TabTrigger>
+    <TabTrigger value="permissions">Permissions</TabTrigger>
+  </TabList>
+  <TabContent value="overview">
+    <ChannelOverview />
+  </TabContent>
+  <TabContent value="permissions">
+    <ChannelPermissions />
+  </TabContent>
+</Tabs>
+```
+
+**Pros**
+
+- Full encapsulation of tab state
+- Clean, declarative API
+- Highly reusable across contexts
+
+### Why it’s useful
+
+This pattern is ideal when Tabs control the full layout. It enforces separation of concerns and is easier to maintain in isolation.
+
+### Controlled Pattern (Integrated with Layout)
+
+```tsx
+<Tabs activeTab={selectedTab} onChange={setSelectedTab}>
+  <TabList>
+    <TabTrigger value="overview">Basic Info</TabTrigger>
+    <TabTrigger value="permissions">Permissions</TabTrigger>
+  </TabList>
+</Tabs>
+<div className="p-6">
+  {selectedTab === 'overview' && <ChannelOverview />}
+  {selectedTab === 'permissions' && <ChannelPermissions />}
+</div>
+```
+
+**Pros**
+
+- Fits cleanly within existing layouts (e.g., Panel)
+- Maintains visual and structural fidelity to Figma
+- Gives parents layout and rendering control
+
+### Why this pattern was chosen
+
+Rock RMS’s layout requires Tabs to visually connect with PanelHeader and render content inside PanelBody — something the compound model couldn’t support cleanly.
+
+### Design System Takeaway
+
+Both implementations are valid.
+A mature design system supports:
+
+- Compound Tabs for standalone tabbed interfaces
+- Controlled Tabs for deeper layout integration
+
+In this project, I prioritized fidelity and layout consistency. But both patterns are implemented in the codebase, offering flexibility for future use cases.
+
+</details>
 
 ## Interpreting the Figma Design
 
 Working from static mockups presented several architectural challenges that required careful interpretation and systematic decision-making:
 
-- Panel-prefixed components (Panel Heading, panel-header-actions) indicated structural panel elements
-- Non-prefixed components (footer-actions, Group Edit Actions) seemed to represent reusable content
+Some elements (like `Panel Heading`, `panel-header-actions`) used the Panel prefix, while others (like `footer-actions`, `Group Edit Actions`) did not. Inconsistencies in naming style — including kebab-case (`panel-header-actions`), PascalCase (`Panel Heading`), and plain phrases (`Group Edit Actions`) — added further ambiguity around how components were meant to be grouped or namespaced.
 
-This suggested a distinction between panel scaffolding and contextual content, though whether this was intentional design system thinking or inconsistent labeling wasn't always clear.
+Because of that, it wasn’t immediately clear whether prefixes implied structural ownership, slot-based injection, or were simply naming artifacts. I treated both header and footer regions as injected slots, keeping composition flexible and consistent regardless of naming convention.
 
-For example, visual inconsistencies in badge and action placement required interpreting intent over literal layout. I grouped related controls together based on function rather than pixel-perfect positioning.
+I interpreted the overall pattern as a loose separation between panel scaffolding and contextual content, even if it wasn’t formally defined.
 
-To address these challenges, I invested time into analyzing:
+To address these uncertainties, I focused on:
 
 - Visual hierarchy and grouping
+
 - Component boundaries and reusability
+
 - Implicit data and UI state assumptions
 
-When faced with ambiguities, I applied this hierarchy:
+When faced with ambiguities, I prioritized:
 
 - Visual relationships over naming conventions
+
 - Functional grouping over literal placement
+
 - Developer ergonomics over strict Figma fidelity
 
 ### `<Tabs />` & Naming Inconsistencies
